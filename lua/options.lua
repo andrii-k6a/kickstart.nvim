@@ -74,7 +74,7 @@ vim.o.confirm = true
 -- Indentation settings
 -- https://gist.github.com/LunarLambda/4c444238fb364509b72cfb891979f1dd
 vim.o.expandtab = true
-vim.o.tabstop = 2
-vim.o.shiftwidth = 2
+vim.o.tabstop = 4
+vim.o.shiftwidth = 4
 vim.o.softtabstop = -1
 vim.o.smarttab = true
