@@ -223,6 +223,10 @@ return {
         -- ts_ls = {},
         --
 
+        jsonls = {},
+
+        ts_ls = {},
+
         lua_ls = {
           -- cmd = { ... },
           -- filetypes = { ... },
