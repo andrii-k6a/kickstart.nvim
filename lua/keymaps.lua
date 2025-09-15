@@ -39,3 +39,6 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 
 -- Oil keymaps
 vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open directory where the opened file is located' })
+
+-- Fugitive Git keymaps
+vim.keymap.set('n', '<leader>gs', '<cmd>topleft G<CR>', { desc = 'Git [S]tatus' })
