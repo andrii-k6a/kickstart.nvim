@@ -32,7 +32,7 @@ return {
       formatters_by_ft = {
         lua = { 'stylua' },
         python = { 'ruff_format' },
-        go = { 'gofumpt' },
+        go = { 'goimports', 'gofumpt' },
         terraform = { 'terraform_fmt' },
         tf = { 'terraform_fmt' },
         ['terraform-vars'] = { 'terraform_fmt' },

@@ -235,6 +235,7 @@ return {
         'stylua',    -- Lua formatter
         'prettierd', -- JS/TS/JSON formatter (daemon mode, fast)
         'gofumpt',   -- Go formatter (stricter gofmt)
+        'goimports', -- Go import organizer
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
