@@ -116,9 +116,7 @@ return {
           --
           -- This may be unwanted, since they displace some of your code
           if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint, event.buf) then
-            map('<leader>th', function()
-              vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
-            end, '[T]oggle Inlay [H]ints')
+            map('<leader>th', function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf }) end, '[T]oggle Inlay [H]ints')
           end
         end,
       })
@@ -178,19 +176,29 @@ return {
 
         jsonls = {},
 
-        vtsls = {},
+        vtsls = {
+          root_dir = require('lspconfig').util.root_pattern('package.json', 'tsconfig.json', 'jsconfig.json'),
+          single_file_support = false,
+          settings = {},
+        },
+
+        denols = {
+          root_dir = require('lspconfig').util.root_pattern('deno.json', 'deno.jsonc'),
+          single_file_support = false,
+          settings = {},
+        },
 
         gopls = {
           settings = {
             gopls = {
-              gofumpt = true,        -- use gofumpt formatting style (stricter superset of gofmt)
-              staticcheck = true,    -- enable staticcheck analyzer suite
+              gofumpt = true, -- use gofumpt formatting style (stricter superset of gofmt)
+              staticcheck = true, -- enable staticcheck analyzer suite
               analyses = {
                 unusedparams = true,
                 shadow = true,
               },
-              usePlaceholders = true,     -- fill in function params on completion
-              completeUnimported = true,  -- complete packages not yet imported
+              usePlaceholders = true, -- fill in function params on completion
+              completeUnimported = true, -- complete packages not yet imported
             },
           },
         },
@@ -232,9 +240,9 @@ return {
       -- for you, so that they are available from within Neovim.
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
-        'stylua',    -- Lua formatter
+        'stylua', -- Lua formatter
         'prettierd', -- JS/TS/JSON formatter (daemon mode, fast)
-        'gofumpt',   -- Go formatter (stricter gofmt)
+        'gofumpt', -- Go formatter (stricter gofmt)
         'goimports', -- Go import organizer
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
