@@ -177,13 +177,13 @@ return {
         jsonls = {},
 
         vtsls = {
-          root_dir = require('lspconfig').util.root_pattern('package.json', 'tsconfig.json', 'jsconfig.json'),
+          root_markers = { 'package.json', 'tsconfig.json', 'jsconfig.json' },
           single_file_support = false,
           settings = {},
         },
 
         denols = {
-          root_dir = require('lspconfig').util.root_pattern('deno.json', 'deno.jsonc'),
+          root_markers = { 'deno.json', 'deno.jsonc' },
           single_file_support = false,
           settings = {},
         },
