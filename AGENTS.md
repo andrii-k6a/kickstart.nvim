@@ -6,6 +6,9 @@
 - Local config is modularized and may intentionally differ from upstream `init.lua`
 - When helping with rebases/upgrades, treat upstream updates as a semantic merge, not a literal file sync
 - Preserve local customizations unless explicitly asked to replace them
+- During rebases, prefer minimal conflict resolution: keep local entrypoints/bootstrap files intact unless the upstream change truly belongs there, and port upstream behavior into the corresponding local modules when possible
+- Before finishing a rebase/upgrade, diff key bootstrap files against the pre-rebase branch to catch incidental edits
+- When restoring conflicted files, prefer exact content from the relevant branch/commit plus targeted edits over manual full-file reconstruction
 - For upgrade help, compare upstream behavior with local modules and report:
   1. upstream changes already present,
   2. upstream changes missing locally,
