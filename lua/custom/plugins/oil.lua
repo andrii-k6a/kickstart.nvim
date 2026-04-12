@@ -47,9 +47,7 @@ return {
           local dir = require('oil').get_current_dir(bufnr)
           local is_dotfile = vim.startswith(name, '.') and name ~= '..'
           -- if no local directory (e.g. for ssh connections), just hide dotfiles
-          if not dir then
-            return is_dotfile
-          end
+          if not dir then return is_dotfile end
           -- dotfiles are considered hidden unless tracked
           if is_dotfile then
             return not git_status[dir].tracked[name]
@@ -72,7 +70,7 @@ return {
       end
     end,
     -- Optional dependencies
-    dependencies = { { 'echasnovski/mini.icons', opts = {} } },
+    dependencies = { { 'nvim-mini/mini.icons', opts = {} } },
     -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
     -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
     lazy = false,
