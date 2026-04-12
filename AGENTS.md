@@ -1,5 +1,16 @@
 # AGENTS.md - Neovim Configuration Guidelines
 
+## Upstream Sync Guidance
+- `master` tracks upstream `kickstart.nvim`
+- `my-nvim` is a custom branch built on top of `master`
+- Local config is modularized and may intentionally differ from upstream `init.lua`
+- When helping with rebases/upgrades, treat upstream updates as a semantic merge, not a literal file sync
+- Preserve local customizations unless explicitly asked to replace them
+- For upgrade help, compare upstream behavior with local modules and report:
+  1. upstream changes already present,
+  2. upstream changes missing locally,
+  3. intentional local divergences
+
 ## Build/Lint/Test Commands
 - **Format Lua**: `stylua .` (formats all Lua files using configured style)
 - **Check format**: `stylua --check .` (validates formatting without changes)
