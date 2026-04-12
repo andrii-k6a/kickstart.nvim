@@ -199,6 +199,8 @@ return {
         basedpyright = {},
         ruff = {},
 
+        stylua = {}, -- Used to format Lua code
+
         -- Special Lua Config, as recommended by neovim help docs
         lua_ls = {
           on_init = function(client)
@@ -238,7 +240,6 @@ return {
       -- You can press `g?` for help in this menu.
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
-        'stylua', -- Lua formatter
         'prettierd', -- JS/TS/JSON formatter (daemon mode, fast)
         'gofumpt', -- Go formatter (stricter gofmt)
         'goimports', -- Go import organizer
