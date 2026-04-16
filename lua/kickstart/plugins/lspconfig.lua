@@ -136,13 +136,13 @@ return {
 
         vtsls = {
           root_markers = { 'package.json', 'tsconfig.json', 'jsconfig.json' },
-          single_file_support = false,
+          workspace_required = true,
           settings = {},
         },
 
         denols = {
           root_markers = { 'deno.json', 'deno.jsonc' },
-          single_file_support = false,
+          workspace_required = true,
           settings = {},
         },
 
