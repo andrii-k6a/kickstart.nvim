@@ -28,5 +28,13 @@ vim.diagnostic.config {
       return diagnostic_message[diagnostic.severity]
     end,
   },
-  jump = { float = true },
+  jump = {
+    on_jump = function(_, bufnr)
+      vim.diagnostic.open_float {
+        bufnr = bufnr,
+        scope = 'cursor',
+        focus = false,
+      }
+    end,
+  },
 }
