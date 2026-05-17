@@ -36,43 +36,37 @@ local function new_git_status()
 end
 local git_status = new_git_status()
 
-return {
-  {
-    'stevearc/oil.nvim',
-    ---@module 'oil'
-    ---@type oil.SetupOpts
-    opts = {
-      view_options = {
-        is_hidden_file = function(name, bufnr)
-          local dir = require('oil').get_current_dir(bufnr)
-          local is_dotfile = vim.startswith(name, '.') and name ~= '..'
-          -- if no local directory (e.g. for ssh connections), just hide dotfiles
-          if not dir then return is_dotfile end
-          -- dotfiles are considered hidden unless tracked
-          if is_dotfile then
-            return not git_status[dir].tracked[name]
-          else
-            -- Check if file is gitignored
-            return git_status[dir].ignored[name]
-          end
-        end,
-      },
-    },
-    config = function(_, opts)
-      require('oil').setup(opts)
+-- mini.icons is a module of mini.nvim (already registered in pack-plugins.lua)
+require('mini.icons').setup {}
 
-      -- Clear git status cache on refresh
-      local refresh = require('oil.actions').refresh
-      local orig_refresh = refresh.callback
-      refresh.callback = function(...)
-        git_status = new_git_status()
-        orig_refresh(...)
+vim.pack.add { 'https://github.com/stevearc/oil.nvim' }
+
+---@module 'oil'
+---@type oil.SetupOpts
+local opts = {
+  view_options = {
+    is_hidden_file = function(name, bufnr)
+      local dir = require('oil').get_current_dir(bufnr)
+      local is_dotfile = vim.startswith(name, '.') and name ~= '..'
+      -- if no local directory (e.g. for ssh connections), just hide dotfiles
+      if not dir then return is_dotfile end
+      -- dotfiles are considered hidden unless tracked
+      if is_dotfile then
+        return not git_status[dir].tracked[name]
+      else
+        -- Check if file is gitignored
+        return git_status[dir].ignored[name]
       end
     end,
-    -- Optional dependencies
-    dependencies = { { 'nvim-mini/mini.icons', opts = {} } },
-    -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
-    -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
-    lazy = false,
   },
 }
+
+require('oil').setup(opts)
+
+-- Clear git status cache on refresh
+local refresh = require('oil.actions').refresh
+local orig_refresh = refresh.callback
+refresh.callback = function(...)
+  git_status = new_git_status()
+  orig_refresh(...)
+end
