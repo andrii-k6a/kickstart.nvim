@@ -78,7 +78,7 @@ local servers = {
   jsonls = {},
 
   vtsls = {
-    root_markers = { 'package.json', 'tsconfig.json', 'jsconfig.json' },
+    root_markers = { 'tsconfig.json', 'jsconfig.json', 'package.json' },
     workspace_required = true,
     settings = {},
   },
