@@ -18,7 +18,7 @@
 - **Format Lua**: `stylua .` (formats all Lua files using configured style)
 - **Check format**: `stylua --check .` (validates formatting without changes)
 - **Health check**: `:checkhealth` (within Neovim to verify plugin/LSP status)
-- **Package management**: `:Lazy` (manage plugins), `:Mason` (install LSP servers/tools)
+- **Package management**: native `vim.pack` (`lua/pack-plugins.lua`), pinned in `nvim-pack-lock.json`; update with `:lua vim.pack.update()`. LSP tools via `:Mason`
 
 ## Code Style Guidelines
 - **Indentation**: 2 spaces (never tabs)
@@ -26,7 +26,7 @@
 - **Quotes**: Single quotes preferred (`quote_style = "AutoPreferSingle"`)
 - **Function calls**: No parentheses when possible (`call_parentheses = "None"`)
 - **Comments**: Use `--` for single line, `--[[]]` for multi-line blocks
-- **Plugin structure**: Return tables from plugin files, use `opts = {}` for simple configs
+- **Plugin structure**: imperative — `vim.pack.add { ... }` then `require('<plugin>').setup { ... }` (no returned specs); `lua/custom/plugins/` auto-loaded by its `init.lua`
 
 ## Naming Conventions
 - **Files**: lowercase with hyphens (e.g., `neo-tree.lua`, `todo-comments.lua`)
