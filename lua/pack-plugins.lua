@@ -66,7 +66,6 @@ local plugins = {
 }
 
 if vim.fn.executable 'make' == 1 then table.insert(plugins, gh 'nvim-telescope/telescope-fzf-native.nvim') end
-if vim.g.have_nerd_font then table.insert(plugins, gh 'nvim-tree/nvim-web-devicons') end
 
 vim.pack.add(plugins)
 

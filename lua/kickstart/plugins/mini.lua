@@ -22,6 +22,13 @@ require('mini.ai').setup {
 -- - sr)'  - [S]urround [R]eplace [)] [']
 require('mini.surround').setup()
 
+-- If a Nerd Font is available, load the icons module for pretty icons across plugins.
+if vim.g.have_nerd_font then
+  require('mini.icons').setup()
+  -- Back-compat for plugins that still expect `nvim-web-devicons` (telescope, lualine, neo-tree)
+  MiniIcons.mock_nvim_web_devicons()
+end
+
 -- Using lualine instead of mini.statusline
 -- -- Simple and easy statusline.
 -- --  You could remove this setup call if you don't like it,

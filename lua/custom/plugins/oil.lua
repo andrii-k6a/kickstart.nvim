@@ -36,8 +36,8 @@ local function new_git_status()
 end
 local git_status = new_git_status()
 
--- mini.icons is a module of mini.nvim (already registered in pack-plugins.lua)
-require('mini.icons').setup {}
+-- mini.icons is set up in kickstart.plugins.mini (guarded by have_nerd_font),
+-- which loads before custom plugins, so no explicit setup is needed here.
 
 vim.pack.add { 'https://github.com/stevearc/oil.nvim' }
 
