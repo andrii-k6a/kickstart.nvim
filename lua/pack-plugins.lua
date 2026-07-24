@@ -73,13 +73,13 @@ require('guess-indent').setup {}
 
 require 'kickstart.plugins.gitsigns'
 require 'kickstart.plugins.whichkey'
+require 'kickstart.plugins.tokyo-night'
+require 'kickstart.plugins.todo-comments'
+require 'kickstart.plugins.mini'
 require 'kickstart.plugins.telescope'
 require 'kickstart.plugins.lspconfig'
 require 'kickstart.plugins.conform'
 require 'kickstart.plugins.blink-cmp'
-require 'kickstart.plugins.tokyo-night'
-require 'kickstart.plugins.todo-comments'
-require 'kickstart.plugins.mini'
 require 'kickstart.plugins.treesitter'
 
 -- NOTE: Next step on your Neovim journey: Add/Configure additional plugins for Kickstart
