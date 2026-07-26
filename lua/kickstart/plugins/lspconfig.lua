@@ -165,6 +165,7 @@ vim.list_extend(ensure_installed, {
   'prettierd', -- JS/TS/JSON formatter (daemon mode, fast)
   'gofumpt', -- Go formatter (stricter gofmt)
   'goimports', -- Go import organizer
+  'google-java-format', -- Java formatter (manual <leader>f)
 })
 require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 

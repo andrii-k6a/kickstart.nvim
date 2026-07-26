@@ -8,7 +8,7 @@ local parsers = {
   -- Defaults
   'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc',
   -- LSP languages (keep in sync with servers in lspconfig.lua)
-  'go', 'typescript', 'javascript', 'tsx', 'json', 'terraform', 'hcl', 'python',
+  'go', 'typescript', 'javascript', 'tsx', 'json', 'terraform', 'hcl', 'python', 'java',
 }
 require('nvim-treesitter').install(parsers)
 

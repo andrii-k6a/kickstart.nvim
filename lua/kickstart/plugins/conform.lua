@@ -23,6 +23,7 @@ require('conform').setup {
     go = { 'goimports', 'gofumpt' },
     terraform = { 'terraform_fmt' },
     tf = { 'terraform_fmt' },
+    java = { 'google-java-format' },
     ['terraform-vars'] = { 'terraform_fmt' },
     javascript = { 'prettierd', 'prettier', stop_after_first = true },
     javascriptreact = { 'prettierd', 'prettier', stop_after_first = true },
