@@ -4,6 +4,12 @@
 -- Mason must be set up before its dependents.
 require('mason').setup {}
 
+-- Translates between nvim-lspconfig server names and mason.nvim package names (e.g. lua_ls <-> lua-language-server).
+-- automatic_enable = false because servers are enabled manually below via vim.lsp.enable.
+require('mason-lspconfig').setup {
+  automatic_enable = false,
+}
+
 -- Useful status updates for LSP.
 require('fidget').setup {}
 
