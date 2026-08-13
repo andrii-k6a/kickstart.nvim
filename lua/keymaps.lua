@@ -49,3 +49,8 @@ vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open directory where the open
 
 -- Fugitive Git keymaps
 vim.keymap.set('n', '<leader>gs', '<cmd>topleft G<CR>', { desc = 'Git [S]tatus' })
+
+-- Markview keymaps
+vim.keymap.set('n', '<leader>mp', '<cmd>Markview toggle<CR>', { desc = 'Toggle Markdown [P]review' })
+vim.keymap.set('n', '<leader>ms', '<cmd>Markview splitToggle<CR>', { desc = 'Toggle Markdown [S]plit preview' })
+vim.keymap.set('n', '<leader>mh', '<cmd>Markview HybridToggle<CR>', { desc = 'Toggle Markdown [H]ybrid mode' })
