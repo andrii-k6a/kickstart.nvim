@@ -43,7 +43,7 @@ vim.api.nvim_create_autocmd('PackChanged', {
   end,
 })
 
----@type (string|vim.pack.Spec)[]
+---@type (string | vim.pack.Spec)[]
 local plugins = {
   gh 'NMAC427/guess-indent.nvim',
   gh 'lewis6991/gitsigns.nvim',
@@ -92,5 +92,7 @@ require 'kickstart.plugins.debug'
 -- require 'kickstart.plugins.autopairs'
 -- require 'kickstart.plugins.neo-tree'
 
--- NOTE: You can add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
+-- NOTE: You can add your own plugins, configuration, etc. in `lua/custom/plugins/*.lua`.
+-- `custom.plugins` loads files from that directory in an unspecified order. Keep dependent
+-- plugins in the same file, or require their modules explicitly here in the required order.
 require 'custom.plugins'
