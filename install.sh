@@ -9,6 +9,7 @@ if [ -e "$TARGET" ] || [ -L "$TARGET" ]; then
   mv "$TARGET" "$BACKUP"
 fi
 
+mkdir -p "$(dirname "$TARGET")"
 ln -s "$REPO_DIR" "$TARGET"
 echo "Linked $REPO_DIR -> $TARGET"
 echo "Run: nvim"
