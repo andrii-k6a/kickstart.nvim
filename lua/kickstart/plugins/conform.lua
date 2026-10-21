@@ -1,4 +1,10 @@
 -- Autoformat
+
+local function web_formatters(bufnr)
+  if require('conform').get_formatter_info('biome-check', bufnr).available then return { 'biome-check' } end
+  return { 'prettierd', 'prettier', stop_after_first = true }
+end
+
 require('conform').setup {
   notify_on_error = false,
   format_on_save = function(bufnr)
@@ -16,6 +22,9 @@ require('conform').setup {
   default_format_opts = {
     lsp_format = 'fallback', -- Use external formatters if configured below, otherwise use LSP formatting. Set to `false` to disable LSP formatting entirely.
   },
+  formatters = {
+    ['biome-check'] = { require_cwd = true },
+  },
   -- You can also specify external formatters in here.
   formatters_by_ft = {
     -- rust = { 'rustfmt' },
@@ -25,12 +34,12 @@ require('conform').setup {
     tf = { 'terraform_fmt' },
     java = { 'google-java-format' },
     ['terraform-vars'] = { 'terraform_fmt' },
-    javascript = { 'prettierd', 'prettier', stop_after_first = true },
-    javascriptreact = { 'prettierd', 'prettier', stop_after_first = true },
-    typescript = { 'prettierd', 'prettier', stop_after_first = true },
-    typescriptreact = { 'prettierd', 'prettier', stop_after_first = true },
-    json = { 'prettierd', 'prettier', stop_after_first = true },
-    jsonc = { 'prettierd', 'prettier', stop_after_first = true },
+    javascript = web_formatters,
+    javascriptreact = web_formatters,
+    typescript = web_formatters,
+    typescriptreact = web_formatters,
+    json = web_formatters,
+    jsonc = web_formatters,
   },
 }
 

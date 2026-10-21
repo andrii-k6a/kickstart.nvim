@@ -83,6 +83,8 @@ local servers = {
   -- For extra features (file rename with import updates, etc): https://github.com/yioneko/nvim-vtsls
   jsonls = {},
 
+  biome = {},
+
   vtsls = {
     root_markers = { 'tsconfig.json', 'jsconfig.json', 'package.json' },
     workspace_required = true,
